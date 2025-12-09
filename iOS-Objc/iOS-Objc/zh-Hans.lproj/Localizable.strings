@@ -1,0 +1,201 @@
+/* 
+  Localizable.strings
+  MyFA
+  
+  简体中文本地化
+*/
+
+/* App */
+"app.title" = "MyFA";
+"app.welcome" = "已连接！发送消息开始聊天。";
+"app.error" = "错误";
+"app.ok" = "确定";
+"app.cancel" = "取消";
+
+/* Status */
+"status.connecting" = "连接中...";
+"status.reconnecting" = "重新连接中...";
+"status.connected" = "已连接";
+"status.disconnected" = "已断开连接";
+
+/* Composer */
+"composer.tools" = "工具";
+"composer.search.placeholder" = "搜索";
+
+/* Tools */
+"tool.coingecko" = "CoinGecko";
+"tool.yahoo" = "Yahoo Finance";
+"tool.bloomberg" = "Bloomberg";
+"tool.morningstar" = "Morningstar";
+
+/* Settings */
+"settings.title" = "设置";
+"settings.language" = "语言";
+"settings.language.en" = "English";
+"settings.language.zh" = "简体中文";
+"settings.language.change" = "更改语言";
+"settings.language.current" = "当前：%@";
+
+/* Conversation List */
+"conversation.list.header.title" = "MyFA";
+"conversation.list.pin" = "置顶对话：%@";
+
+/* Tab Bar */
+"tab.chat" = "对话";
+"tab.strategies" = "策略";
+"tab.assets" = "资产";
+
+/* Strategies */
+"strategies.title" = "策略广场";
+"strategies.subtitle" = "发现优质投资策略";
+"strategies.take.to.chat" = "拿来聊";
+"strategies.follow" = "跟投";
+"strategies.annual.return" = "年化收益";
+"strategies.max.drawdown" = "最大回撤";
+"strategies.sharpe.ratio" = "夏普比率";
+"strategies.win.rate" = "胜率";
+"strategies.followers" = "跟随人数";
+"strategies.recent.followers" = "最近 7 天 %d 人新增";
+"strategies.shared.strategy" = "分享了投资策略";
+"strategies.risk.medium" = "中风险";
+"strategies.risk.low" = "低风险";
+"strategies.risk.high" = "高风险";
+"strategies.term.medium" = "中长线";
+"strategies.term.long" = "长线";
+"strategies.term.short" = "短线";
+"strategies.type.etf.stock" = "ETF+个股";
+"strategies.discuss" = "开始基于策略《%@》的讨论";
+
+/* Strategy Samples */
+"strategy.sample1.title" = "三次抄底失败之后，我换成这套\"慢半拍\"策略";
+"strategy.sample1.desc" = "2023年初我经历了三次失败的抄底，每次都以为是底部结果还能跌。后来我改变策略，不再试图抓住最低点，而是等市场企稳后再进场。这个策略让我在2023-2024年稳定获得了68%的收益，最大回撤控制在12%以内。";
+"strategy.sample1.creator" = "稳健投资者";
+"strategy.sample1.role" = "策略创建者";
+
+"strategy.sample2.title" = "只在极端恐慌时出手的宽基ETF策略";
+"strategy.sample2.desc" = "我的投资哲学很简单：别人恐慌时我贪婪。这个策略只做一件事，就是等待市场恐慌指数达到极值时分批买入宽基ETF。2022年11月开始执行，至今收益45%，期间几乎不需要操作，适合上班族。";
+"strategy.sample2.creator" = "佛系投资人";
+"strategy.sample2.role" = "策略创建者";
+
+/* Assets */
+"assets.title" = "资产";
+"assets.subtitle" = "查看您的投资组合";
+"assets.journey.title" = "开始你的投资之旅";
+"assets.journey.subtitle" = "开户由AI智能引导，全程约5-8分钟\n支持随时中断，进度自动保存";
+"assets.opening.title" = "开户流程";
+"assets.opening.step1" = "身份验证";
+"assets.opening.step2" = "实人见证";
+"assets.opening.step3" = "风险评估";
+"assets.start.opening" = "开始开户";
+"assets.has.account" = "已有证券账户？立即登录";
+"assets.login.demo" = "使用演示账户登录";
+"assets.login.title" = "登录";
+"assets.login.message" = "输入凭据以访问您的投资组合。\n\n演示用户：johndoe\n密码：12345678";
+"assets.login.username" = "用户名";
+"assets.login.password" = "密码";
+"assets.login.button" = "登录";
+"assets.login.error" = "凭据无效";
+"assets.total.balance" = "总资产";
+"assets.cash" = "现金：%@";
+"assets.trade" = "交易";
+"assets.logout" = "登出";
+"assets.logout.confirm.title" = "登出";
+"assets.logout.confirm.message" = "确定要登出吗？";
+"assets.ask.about" = "告诉我关于 %@ (%@) 的信息";
+
+/* Portfolio Types */
+"portfolio.crypto" = "加密货币";
+"portfolio.stock" = "股票";
+"portfolio.fund" = "基金";
+"portfolio.bond" = "债券";
+"portfolio.cash" = "现金";
+
+/* Trade */
+"trade.want" = "我想进行交易。";
+"trade.confirm.title" = "确认交易";
+"trade.confirm.buy" = "买入";
+"trade.confirm.sell" = "卖出";
+"trade.confirm.question" = "您确定要";
+"trade.confirm.for" = "价格";
+"trade.confirm.button" = "确认";
+"trade.success.title" = "成功";
+"trade.success.message" = "交易执行成功。";
+"trade.failed.title" = "失败";
+"trade.failed.message" = "资金不足或资产未找到。";
+
+/* Navigation */
+"nav.back" = "返回";
+
+/* Errors */
+"error.create.conversation" = "创建对话失败，请重试。";
+
+/* Location */
+"location.title" = "位置";
+"location.search.placeholder" = "搜索位置";
+"location.use.button" = "使用此位置";
+"location.selected" = "已选择位置";
+"location.close" = "关闭";
+"location.template.coords" = "位置在纬度 {latitude}、经度 {longitude}。";
+"location.template.place" = "位置在 {placeName}（纬度 {latitude}、经度 {longitude}）。";
+
+/* Calendar */
+"calendar.title" = "即将到来的事件";
+"calendar.sample.meeting" = "示例会议";
+"calendar.untitled.event" = "未命名事件";
+"calendar.use.button" = "使用此事件";
+"calendar.close" = "关闭";
+"calendar.no.title" = "（无标题）";
+
+/* Account Opening Flow */
+"account.phone.prompt" = "首先，请提供你的手机号码";
+"account.opening.request" = "我想开户";
+
+/* Disclaimer */
+"disclaimer.title" = "重要提示：演示应用";
+"disclaimer.message" = "MyFA 是一个演示应用，展示用于金融助手的 AI 聊天功能。\n\n• 所有交易均为模拟\n• 不涉及真实资金\n• 市场数据为模拟数据\n• 仅用于教育目的\n\n本应用不提供实际的金融服务、交易或投资管理。";
+"disclaimer.button" = "我明白了";
+"disclaimer.simulation.banner" = "⚠️ 仅限模拟 - 无真实资金";
+
+/* Errors - Trade */
+"error.trade.too.fast.title" = "操作过快";
+"error.trade.too.fast.message" = "请稍等片刻后再发起交易。";
+"error.trade.invalid.title" = "无效的交易请求";
+"error.trade.invalid.message" = "交易链接无效或格式错误。请重试。";
+
+/* Chat */
+"chat.agent.title" = "我的助手";
+"chat.empty.state" = "你好！👋\n点击右上角的 + 开始新对话";
+
+/* Portfolio */
+"portfolio.title" = "我的投资组合";
+"portfolio.detail.format" = "%d 项资产 • 现金：%@";
+"portfolio.share.message" = "与助手分享您当前的投资组合，以获得个性化建议。";
+"portfolio.total.value" = "总价值：%@";
+"portfolio.attach.button" = "附加投资组合";
+"portfolio.details.sent" = "投资组合详情已发送";
+"portfolio.quantity.units" = "%.4f 单位";
+
+"portfolio.display.name" = "我的投资组合";
+"portfolio.current" = "当前投资组合";
+
+/* Stock */
+"stock.title" = "股票";
+"stock.search.title" = "搜索股票";
+"stock.search.placeholder" = "输入股票代码或名称...";
+"stock.section.hot" = "热门股票";
+"stock.search.hint" = "支持按股票代码、名称或拼音首字母搜索";
+
+"tab.strategy" = "策略";
+"tab.asset" = "资产";
+"nav.chat.title" = "AI智投助手";
+"tool.expedia" = "Expedia";
+"tool.booking" = "Booking.com";
+"tool.coursera" = "Coursera";
+"tool.expedia.description" = "搜索和预订航班、酒店和度假套餐";
+"tool.booking.description" = "查找和预订全球酒店、公寓和住宿";
+"tool.coursera.description" = "搜索和注册来自顶尖大学和公司的在线课程";
+"settings.language.zhHans" = "简体中文";
+"settings.language.zhHant" = "繁體中文";
+"settings.language.restart" = "语言已更改";
+"settings.language.restartMessage" = "请重启应用以应用新的语言设置。";
+"settings.language.restartButton" = "确定";

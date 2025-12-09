@@ -1,0 +1,7 @@
+- iOS 文件夹中是 swift 版本的 Demo
+- iOS-Objc 文件夹里是Objective-C 版本的Demo(目前空项目已经创建好，cocoapods依赖项也已经配置好)
+- swift 版本是通过 spm 来管理依赖项， Objective-C 版本是通过Cocoapods来配置依赖项（cocoapods的依赖项已经配置好）
+- 我需要你根据swift 版本中的Demo内容来完成 Objective-C版本的Demo内容。尽可能使用Objective-C语言开发，如果因为 FinClipChatKit 不支持使用Objective-C，这部分可以使用swift来桥接。并且详细输出一份md文档说明哪些地方不支持使用Objective-C，并且说明原因。
+- 请不要进行任何的git 操作
+- 请一定要按照swift demo的逻辑走，不要有自己的思想，要求UI和其他的所有逻辑都保持一致。
+- 最后请自行编译 Objectiv-C 版本的demo,确保编译通过，如果有问题，请自行修改，直到编译通过。

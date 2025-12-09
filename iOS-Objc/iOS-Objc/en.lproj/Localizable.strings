@@ -1,0 +1,203 @@
+/* 
+  Localizable.strings
+  MyFA
+  
+  English Localization
+*/
+
+/* App */
+"app.title" = "MyFA";
+"app.welcome" = "Connected! Send a message to start chatting.";
+"app.error" = "Error";
+"app.ok" = "OK";
+"app.cancel" = "Cancel";
+
+/* Status */
+"status.connecting" = "Connecting...";
+"status.reconnecting" = "Reconnecting...";
+"status.connected" = "Connected";
+"status.disconnected" = "Disconnected";
+
+/* Composer */
+"composer.tools" = "Tools";
+"composer.search.placeholder" = "Search";
+
+/* Tools */
+"tool.coingecko" = "CoinGecko";
+"tool.yahoo" = "Yahoo Finance";
+"tool.bloomberg" = "Bloomberg";
+"tool.morningstar" = "Morningstar";
+
+/* Settings */
+"settings.title" = "Settings";
+"settings.language" = "Language";
+"settings.language.en" = "English";
+"settings.language.zh" = "简体中文";
+"settings.language.change" = "Change Language";
+"settings.language.current" = "Current: %@";
+
+/* Conversation List */
+"conversation.list.header.title" = "MyFA";
+"conversation.list.pin" = "Pin conversation: %@";
+
+/* Tab Bar */
+"tab.chat" = "Chat";
+"tab.strategies" = "Strategies";
+"tab.assets" = "Portfolio";
+
+/* Strategies */
+"strategies.title" = "Strategy Marketplace";
+"strategies.subtitle" = "Discover quality investment strategies";
+"strategies.take.to.chat" = "Take to Chat";
+"strategies.follow" = "Follow";
+"strategies.annual.return" = "Annual Return";
+"strategies.max.drawdown" = "Max Drawdown";
+"strategies.sharpe.ratio" = "Sharpe Ratio";
+"strategies.win.rate" = "Win Rate";
+"strategies.followers" = "Followers";
+"strategies.recent.followers" = "Recently added %d followers in 7 days";
+"strategies.shared.strategy" = "Shared investment strategy";
+"strategies.risk.medium" = "Medium Risk";
+"strategies.risk.low" = "Low Risk";
+"strategies.risk.high" = "High Risk";
+"strategies.term.medium" = "Medium Term";
+"strategies.term.long" = "Long Term";
+"strategies.term.short" = "Short Term";
+"strategies.type.etf.stock" = "ETF + Stock";
+"strategies.discuss" = "Start discussion based on strategy \"%@\"";
+
+/* Strategy Samples */
+"strategy.sample1.title" = "After 3 Failed Bottom Calls, I Switched to This \"Wait-and-See\" Strategy";
+"strategy.sample1.desc" = "Early 2023, I failed to catch the bottom 3 times. Each time I thought it was the bottom, it went lower. I changed my approach: instead of trying to catch the exact bottom, I wait for market stabilization. This strategy earned me 68% in 2023-2024 with max drawdown under 12%.";
+"strategy.sample1.creator" = "Steady Investor";
+"strategy.sample1.role" = "Strategy Creator";
+
+"strategy.sample2.title" = "Broad-Based ETF Strategy: Only Act During Extreme Panic";
+"strategy.sample2.desc" = "My philosophy is simple: be greedy when others are fearful. This strategy does one thing - wait for panic index to hit extremes, then gradually buy broad-based ETFs. Started Nov 2022, gained 45% so far with minimal operations. Perfect for working professionals.";
+"strategy.sample2.creator" = "Zen Investor";
+"strategy.sample2.role" = "Strategy Creator";
+
+/* Assets */
+"assets.title" = "Portfolio";
+"assets.subtitle" = "View your investment portfolio";
+"assets.journey.title" = "Start Your Investment Journey";
+"assets.journey.subtitle" = "AI-guided account opening, takes about 5-8 minutes\nSupports interruption, progress auto-saved";
+"assets.opening.title" = "Account Opening Process";
+"assets.opening.step1" = "Identity Verification";
+"assets.opening.step2" = "Live Verification";
+"assets.opening.step3" = "Risk Assessment";
+"assets.start.opening" = "Start Account Opening";
+"assets.has.account" = "Already have a securities account? Login now";
+"assets.login.demo" = "Login with Demo Account";
+"assets.login.title" = "Login";
+"assets.login.message" = "Enter credentials to access your portfolio.\n\nDemo User: johndoe\nPassword: 12345678";
+"assets.login.username" = "Username";
+"assets.login.password" = "Password";
+"assets.login.button" = "Login";
+"assets.login.error" = "Invalid credentials";
+"assets.total.balance" = "Total Balance";
+"assets.cash" = "Cash: %@";
+"assets.trade" = "Trade";
+"assets.logout" = "Logout";
+"assets.logout.confirm.title" = "Logout";
+"assets.logout.confirm.message" = "Are you sure you want to logout?";
+"assets.ask.about" = "Tell me about %@ (%@)";
+
+/* Portfolio Types */
+"portfolio.crypto" = "Crypto";
+"portfolio.stock" = "Stock";
+"portfolio.fund" = "Fund";
+"portfolio.bond" = "Bond";
+"portfolio.cash" = "Cash";
+
+/* Trade */
+"trade.want" = "I want to make a trade.";
+"trade.confirm.title" = "Confirm Trade";
+"trade.confirm.buy" = "Buy";
+"trade.confirm.sell" = "Sell";
+"trade.confirm.question" = "Are you sure you want to";
+"trade.confirm.for" = "for";
+"trade.confirm.button" = "Confirm";
+"trade.success.title" = "Success";
+"trade.success.message" = "Trade executed successfully.";
+"trade.failed.title" = "Failed";
+"trade.failed.message" = "Insufficient funds or asset not found.";
+
+/* Navigation */
+"nav.back" = "Back";
+
+/* Errors */
+"error.create.conversation" = "Failed to create conversation. Please try again.";
+
+/* Location */
+"location.title" = "Location";
+"location.search.placeholder" = "Search for a location";
+"location.use.button" = "Use This Location";
+"location.selected" = "Selected Location";
+"location.close" = "Close";
+"location.template.coords" = "Location at latitude {latitude}, longitude {longitude}.";
+"location.template.place" = "Location at {placeName} (latitude {latitude}, longitude {longitude}).";
+
+/* Calendar */
+"calendar.title" = "Upcoming Event";
+"calendar.sample.meeting" = "Sample Meeting";
+"calendar.untitled.event" = "Untitled Event";
+"calendar.use.button" = "Use This Event";
+"calendar.close" = "Close";
+"calendar.no.title" = "(No Title)";
+
+/* Account Opening Flow */
+"account.phone.prompt" = "First, please provide your phone number";
+"account.opening.request" = "I want to open an account";
+
+/* Disclaimer */
+"disclaimer.title" = "Important: Demo Application";
+"disclaimer.message" = "MyFA is a DEMONSTRATION APPLICATION showcasing AI chat capabilities for financial assistance.\n\n• All trades are SIMULATED\n• No real money is involved\n• Market data is MOCK data\n• For educational purposes only\n\nThis app does NOT provide actual financial services, trading, or investment management.";
+"disclaimer.button" = "I Understand";
+"disclaimer.simulation.banner" = "⚠️ SIMULATION ONLY - No Real Money";
+
+/* Errors - Trade */
+"error.trade.too.fast.title" = "Too Fast";
+"error.trade.too.fast.message" = "Please wait a moment before initiating another trade.";
+"error.trade.invalid.title" = "Invalid Trade Request";
+"error.trade.invalid.message" = "The trade link is invalid or malformed. Please try again.";
+
+/* Chat */
+"chat.agent.title" = "My Agent";
+"chat.empty.state" = "Hello! 👋\nTap + in the top right to start a new conversation";
+
+/* Portfolio */
+"portfolio.title" = "My Portfolio";
+"portfolio.detail.format" = "%d Assets • Cash: %@";
+"portfolio.share.message" = "Share your current portfolio with the agent for personalized advice.";
+"portfolio.total.value" = "Total Value: %@";
+"portfolio.attach.button" = "Attach Portfolio";
+"portfolio.details.sent" = "Portfolio Details Sent";
+"portfolio.quantity.units" = "%.4f units";
+
+"portfolio.display.name" = "My Portfolio";
+"portfolio.current" = "Current Portfolio";
+
+/* Stock */
+"stock.title" = "Stock";
+"stock.search.title" = "Search Stocks";
+"stock.search.placeholder" = "Enter ticker or name...";
+"stock.section.hot" = "Hot Stocks";
+"stock.search.hint" = "Search by ticker, name, or Pinyin initials";
+
+"tab.strategy" = "Strategy";
+"tab.asset" = "Assets";
+"nav.chat.title" = "AI Investment Assistant";
+"tool.expedia" = "Expedia";
+"tool.booking" = "Booking.com";
+"tool.coursera" = "Coursera";
+"tool.expedia.description" = "Search and book flights, hotels, and vacation packages";
+"tool.booking.description" = "Find and book hotels, apartments, and accommodations worldwide";
+"tool.coursera.description" = "Search and enroll in online courses from top universities and companies";
+"settings.language.zhHans" = "简体中文";
+"settings.language.zhHant" = "繁體中文";
+"settings.language.restart" = "Language Changed";
+"settings.language.restartMessage" = "Please restart the app to apply the new language setting.";
+"settings.language.restartButton" = "OK";
+"strategies.chat.start" = "Start discussion based on strategy \"%@\"";
+"assets.units" = "%.4f units";

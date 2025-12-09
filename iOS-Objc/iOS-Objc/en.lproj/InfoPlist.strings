@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  MyFA
+  
+  English localization for Info.plist strings
+*/
+
+"NSCalendarsUsageDescription" = "Calendar access lets us suggest upcoming events in chat.";
+"NSLocationWhenInUseUsageDescription" = "Location access lets us share your current location in chat.";
+"NSMicrophoneUsageDescription" = "Microphone access is needed for press-to-talk conversations.";
+

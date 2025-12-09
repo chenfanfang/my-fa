@@ -8,4 +8,38 @@ target 'iOS-Objc' do
   # Pods for iOS-Objc
   pod 'FinClipChatKit'
 
+  post_install do |installer|
+    require 'xcodeproj'
+    project_path = 'iOS-Objc.xcodeproj'
+    project = Xcodeproj::Project.open(project_path)
+    target = project.targets.first # 'iOS-Objc'
+    
+    # Create a new group for our manual resources
+    res_group = project.main_group['ManualResources']
+    if res_group.nil?
+        res_group = project.main_group.new_group('ManualResources')
+    end
+    
+    # Paths relative to project root
+    files = ['iOS-Objc/en.lproj', 'iOS-Objc/zh-Hans.lproj', 'iOS-Objc/Assets.xcassets']
+    
+    files.each do |file_path|
+      # Check if reference exists in our manual group
+      file_ref = res_group.files.find { |f| f.path == file_path }
+      
+      if file_ref.nil?
+        file_ref = res_group.new_reference(file_path)
+      end
+      
+      # Add to Resources Build Phase if not already there
+      resources_phase = target.resources_build_phase
+      unless resources_phase.files_references.include?(file_ref)
+        resources_phase.add_file_reference(file_ref)
+        puts "Added #{file_path} to Resources build phase"
+      end
+    end
+    
+    project.save
+  end
+
 end

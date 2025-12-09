@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  MyFA
+  
+  简体中文本地化 Info.plist 字符串
+*/
+
+"NSCalendarsUsageDescription" = "日历访问权限让我们可以在聊天中建议即将到来的事件。";
+"NSLocationWhenInUseUsageDescription" = "位置访问权限让我们可以在聊天中分享您当前的位置。";
+"NSMicrophoneUsageDescription" = "需要麦克风访问权限以进行按住说话对话。";
+
