@@ -1,11 +1,14 @@
 #import "FAStrategiesViewController.h"
 #import "iOS_Objc-Swift.h"
+#import "FAStrategyCardView.h"
+#import "FAMockStrategyService.h"
+#import "FAStrategy.h"
 
-@interface FAStrategiesViewController () <StrategyCardDelegate>
+@interface FAStrategiesViewController () <FAStrategyCardDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIStackView *contentStackView;
-@property (nonatomic, copy) NSArray<Strategy *> *strategies;
+@property (nonatomic, copy) NSArray<FAStrategy *> *strategies;
 
 @end
 
@@ -103,10 +106,10 @@
 }
 
 - (void)loadStrategies {
-    self.strategies = [[MockStrategyService shared] getStrategies];
+    self.strategies = [[FAMockStrategyService sharedService] getStrategies];
     
-    for (Strategy *strategy in self.strategies) {
-        StrategyCardView *cardView = [[StrategyCardView alloc] initWithStrategy:strategy];
+    for (FAStrategy *strategy in self.strategies) {
+        FAStrategyCardView *cardView = [[FAStrategyCardView alloc] initWithStrategy:strategy];
         cardView.delegate = self;
         cardView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentStackView addArrangedSubview:cardView];
@@ -120,12 +123,12 @@
 
 #pragma mark - StrategyCardDelegate
 
-- (void)strategyCardDidTapTakeToChat:(StrategyCardView *)card strategy:(Strategy *)strategy {
+- (void)strategyCardDidTapTakeToChat:(FAStrategyCardView *)card strategy:(FAStrategy *)strategy {
     NSString *format = [LocalizationHelper localized:@"strategies.discuss"];
     NSString *message = [NSString stringWithFormat:format, strategy.title];
     NSDictionary *context = @{
         @"type": @"strategy",
-        @"strategyId": strategy.id,
+        @"strategyId": strategy.strategyId, // Note: Model uses strategyId
         @"strategyTitle": strategy.title
     };
     

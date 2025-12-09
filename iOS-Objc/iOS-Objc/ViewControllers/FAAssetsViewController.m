@@ -5,6 +5,8 @@
 #import "FAHolding.h"
 #import "FAMarketData.h"
 #import "FAPortfolio.h"
+#import "FAAccountOpeningCardView.h"
+#import "FAMockAssetService.h"
 
 // MARK: - FAHoldingCell
 
@@ -138,7 +140,7 @@
 @property (nonatomic, strong) UIView *iconView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *subtitleLabel;
-@property (nonatomic, strong) AccountOpeningCardView *openingCard;
+@property (nonatomic, strong) FAAccountOpeningCardView *openingCard;
 @property (nonatomic, strong) UIButton *startButton;
 @property (nonatomic, strong) UIButton *loginButton;
 @property (nonatomic, strong) UILabel *loginLabel;
@@ -241,8 +243,8 @@
     [self.contentView addSubview:self.subtitleLabel];
     
     // Card
-    NSArray *steps = [[MockAssetService shared] getAccountOpeningSteps];
-    self.openingCard = [[AccountOpeningCardView alloc] initWithSteps:steps];
+    NSArray *steps = [[FAMockAssetService sharedService] getAccountOpeningSteps];
+    self.openingCard = [[FAAccountOpeningCardView alloc] initWithSteps:steps];
     self.openingCard.translatesAutoresizingMaskIntoConstraints = NO;
     [self.contentView addSubview:self.openingCard];
     
