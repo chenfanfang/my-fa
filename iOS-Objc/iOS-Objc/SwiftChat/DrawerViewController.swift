@@ -1,7 +1,7 @@
 import UIKit
 import FinClipChatKit
 
-protocol DrawerViewControllerDelegate: AnyObject {
+@objc public protocol DrawerViewControllerDelegate: AnyObject {
   func drawerDidRequestToggle()
   func drawerDidSelectConversation(sessionId: UUID)
   func drawerDidRequestNewConversation()
@@ -11,8 +11,8 @@ protocol DrawerViewControllerDelegate: AnyObject {
 ///
 /// This is now a thin wrapper that configures ChatKitConversationListViewController
 /// and adapts its delegate to the drawer-specific delegate pattern.
-final class DrawerViewController: ChatKitConversationListViewController {
-  weak var drawerDelegate: DrawerViewControllerDelegate?
+@objc public final class DrawerViewController: ChatKitConversationListViewController {
+  @objc public weak var drawerDelegate: DrawerViewControllerDelegate?
   
   init(coordinator: ChatKitCoordinator) {
     // Configure with app-specific settings
@@ -41,20 +41,20 @@ final class DrawerViewController: ChatKitConversationListViewController {
 // MARK: - ChatKitConversationListViewControllerDelegate
 
 extension DrawerViewController: ChatKitConversationListViewControllerDelegate {
-  func conversationListViewController(
+  public func conversationListViewController(
     _ controller: ChatKitConversationListViewController,
     didSelectConversation record: ConversationRecord
   ) {
     drawerDelegate?.drawerDidSelectConversation(sessionId: record.id)
   }
   
-  func conversationListViewControllerDidRequestNewConversation(
+  public func conversationListViewControllerDidRequestNewConversation(
     _ controller: ChatKitConversationListViewController
   ) {
     drawerDelegate?.drawerDidRequestNewConversation()
   }
   
-  func conversationListViewController(
+  public func conversationListViewController(
     _ controller: ChatKitConversationListViewController,
     didPinConversation record: ConversationRecord
   ) {

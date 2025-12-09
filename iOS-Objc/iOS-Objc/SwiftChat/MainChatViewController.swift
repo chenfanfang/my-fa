@@ -1,8 +1,8 @@
-import UIKit
+asimport UIKit
 import Combine
 import FinClipChatKit
 
-final class MainChatViewController: UIViewController {
+@objc public final class MainChatViewController: UIViewController {
   private let coordinator: ChatKitCoordinator
   private var currentChatVC: ChatViewController?
   private var cancellables = Set<AnyCancellable>()
@@ -88,7 +88,7 @@ final class MainChatViewController: UIViewController {
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func viewDidLoad() {
+  public override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
     showEmptyState()
@@ -162,7 +162,7 @@ final class MainChatViewController: UIViewController {
     ])
   }
   
-  func switchToConversation(sessionId: UUID) {
+  @objc public func switchToConversation(sessionId: UUID) {
     Task { @MainActor in
     guard let conversation = coordinator.conversation(for: sessionId),
           let record = coordinator.record(for: sessionId) else {
@@ -177,7 +177,7 @@ final class MainChatViewController: UIViewController {
     }
   }
   
-  func createNewConversation(withMessage message: String? = nil, context: [String: Any]? = nil) {
+  @objc public func createNewConversation(withMessage message: String? = nil, context: [String: Any]? = nil) {
     Task { @MainActor in
       do {
         let (record, conversation) = try await coordinator.startConversation(
