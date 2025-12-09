@@ -208,10 +208,10 @@
     [self.containerView addSubview:self.metricsStackView];
     
     NSArray *metrics = @[
-        @{@"label": [LocalizationHelper localized:@"strategies.annual.return"], @"value": [NSString stringWithFormat:@"+%.1f%%", self.strategy.performance.annualReturn]},
-        @{@"label": [LocalizationHelper localized:@"strategies.max.drawdown"], @"value": [NSString stringWithFormat:@"%.1f%%", self.strategy.performance.maxDrawdown]},
-        @{@"label": [LocalizationHelper localized:@"strategies.sharpe.ratio"], @"value": [NSString stringWithFormat:@"%.2f", self.strategy.performance.sharpeRatio]},
-        @{@"label": [LocalizationHelper localized:@"strategies.win.rate"], @"value": [NSString stringWithFormat:@"%.0f%%", self.strategy.performance.winRate]}
+        @{@"label": [FALocalizationHelper localized:@"strategies.annual.return"], @"value": [NSString stringWithFormat:@"+%.1f%%", self.strategy.performance.annualReturn]},
+        @{@"label": [FALocalizationHelper localized:@"strategies.max.drawdown"], @"value": [NSString stringWithFormat:@"%.1f%%", self.strategy.performance.maxDrawdown]},
+        @{@"label": [FALocalizationHelper localized:@"strategies.sharpe.ratio"], @"value": [NSString stringWithFormat:@"%.2f", self.strategy.performance.sharpeRatio]},
+        @{@"label": [FALocalizationHelper localized:@"strategies.win.rate"], @"value": [NSString stringWithFormat:@"%.0f%%", self.strategy.performance.winRate]}
     ];
     
     for (NSDictionary *metric in metrics) {
@@ -324,7 +324,7 @@
     [followersIcon.widthAnchor constraintEqualToConstant:16].active = YES;
     
     UILabel *followersLabel = [[UILabel alloc] init];
-    NSString *format = [LocalizationHelper localized:@"strategies.recent.followers"];
+    NSString *format = [FALocalizationHelper localized:@"strategies.recent.followers"];
     followersLabel.text = [NSString stringWithFormat:format, (long)self.strategy.engagement.recentFollowers];
     followersLabel.font = [UIFont systemFontOfSize:12];
     followersLabel.textColor = [UIColor grayColor];
@@ -370,7 +370,7 @@
 
 - (void)setupButtons {
     self.takeToChatButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.takeToChatButton setTitle:[LocalizationHelper localized:@"strategies.take.to.chat"] forState:UIControlStateNormal];
+    [self.takeToChatButton setTitle:[FALocalizationHelper localized:@"strategies.take.to.chat"] forState:UIControlStateNormal];
     self.takeToChatButton.titleLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
     [self.takeToChatButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.takeToChatButton.backgroundColor = [UIColor colorWithRed:0.46 green:0.42 blue:1.00 alpha:1.00];
@@ -380,7 +380,7 @@
     [self.containerView addSubview:self.takeToChatButton];
     
     self.followButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.followButton setTitle:[LocalizationHelper localized:@"strategies.follow"] forState:UIControlStateNormal];
+    [self.followButton setTitle:[FALocalizationHelper localized:@"strategies.follow"] forState:UIControlStateNormal];
     self.followButton.titleLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
     [self.followButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.followButton.backgroundColor = [UIColor colorWithWhite:0.25 alpha:1.0];

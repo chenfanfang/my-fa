@@ -1,5 +1,6 @@
 #import "FASettingsViewController.h"
 #import "iOS_Objc-Swift.h"
+#import "FALocalizationHelper.h"
 
 @interface FASettingsViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -16,12 +17,12 @@
 }
 
 - (void)languageDidChange {
-    self.title = [LocalizationHelper localized:@"settings.title"];
+    self.title = [FALocalizationHelper localized:@"settings.title"];
     [self.tableView reloadData];
 }
 
 - (void)setupUI {
-    self.title = [LocalizationHelper localized:@"settings.title"];
+    self.title = [FALocalizationHelper localized:@"settings.title"];
     self.view.backgroundColor = [UIColor systemGroupedBackgroundColor];
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     
@@ -54,10 +55,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     UIListContentConfiguration *config = [cell defaultContentConfiguration];
-    config.text = [LocalizationHelper localized:@"settings.language"];
+    config.text = [FALocalizationHelper localized:@"settings.language"];
     // Note: To get current language display name in ObjC, we might need a helper method or access the enum wrapper
     // For simplicity, we just check the current code
-    NSString *code = [LocalizationHelper currentLanguageCode];
+    NSString *code = [FALocalizationHelper currentLanguageCode];
     NSString *displayName = [code isEqualToString:@"en"] ? @"English" : @"简体中文";
     
     config.secondaryText = displayName;
@@ -73,21 +74,21 @@
 }
 
 - (void)showLanguageSelector {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[LocalizationHelper localized:@"settings.language.change"] message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[FALocalizationHelper localized:@"settings.language.change"] message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *english = [UIAlertAction actionWithTitle:@"English" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [LocalizationHelper setLanguageWithCode:@"en"];
+        [FALocalizationHelper setLanguageWithCode:@"en"];
         [self showLanguageChangedAlert];
     }];
     
     UIAlertAction *chinese = [UIAlertAction actionWithTitle:@"简体中文" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [LocalizationHelper setLanguageWithCode:@"zh-Hans"];
+        [FALocalizationHelper setLanguageWithCode:@"zh-Hans"];
         [self showLanguageChangedAlert];
     }];
     
     [alert addAction:english];
     [alert addAction:chinese];
-    [alert addAction:[UIAlertAction actionWithTitle:[LocalizationHelper localized:@"app.cancel"] style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:[FALocalizationHelper localized:@"app.cancel"] style:UIAlertActionStyleCancel handler:nil]];
     
     if (alert.popoverPresentationController) {
         alert.popoverPresentationController.sourceView = self.tableView;
@@ -98,14 +99,14 @@
 }
 
 - (void)showLanguageChangedAlert {
-    NSString *code = [LocalizationHelper currentLanguageCode];
+    NSString *code = [FALocalizationHelper currentLanguageCode];
     NSString *displayName = [code isEqualToString:@"en"] ? @"English" : @"简体中文";
     
-    NSString *message = [NSString stringWithFormat:[LocalizationHelper localized:@"settings.language.current"], displayName];
+    NSString *message = [NSString stringWithFormat:[FALocalizationHelper localized:@"settings.language.current"], displayName];
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[LocalizationHelper localized:@"settings.language.change"] message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[FALocalizationHelper localized:@"settings.language.change"] message:message preferredStyle:UIAlertControllerStyleAlert];
     
-    [alert addAction:[UIAlertAction actionWithTitle:[LocalizationHelper localized:@"app.ok"] style:UIAlertActionStyleDefault handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:[FALocalizationHelper localized:@"app.ok"] style:UIAlertActionStyleDefault handler:nil]];
     
     [self presentViewController:alert animated:YES completion:nil];
 }

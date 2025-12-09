@@ -17,9 +17,9 @@ import FinClipChatKit
   init(coordinator: ChatKitCoordinator) {
     // Configure with app-specific settings
     var config = ChatKitConversationListConfiguration.default
-    config.headerTitle = LocalizationHelper.localized("conversation.list.header.title")
+    config.headerTitle = FALocalizationHelper.localized("conversation.list.header.title")
     config.headerIcon = UIImage(systemName: "bubble.left.and.bubble.right.fill")
-    config.searchPlaceholder = LocalizationHelper.localized("composer.search.placeholder")
+    config.searchPlaceholder = FALocalizationHelper.localized("composer.search.placeholder")
     config.showHeader = true
     config.showSearchBar = true
     config.showNewButton = true
@@ -59,6 +59,6 @@ extension DrawerViewController: ChatKitConversationListViewControllerDelegate {
     didPinConversation record: ConversationRecord
   ) {
     // Pin functionality - can be implemented later
-    print(LocalizationHelper.localized("conversation.list.pin", record.title))
+    print(String(format: FALocalizationHelper.localized("conversation.list.pin"), record.title))
   }
 }

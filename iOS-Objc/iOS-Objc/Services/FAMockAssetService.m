@@ -14,9 +14,9 @@
 
 - (NSArray<NSString *> *)getAccountOpeningSteps {
     return @[
-        [LocalizationHelper localized:@"assets.opening.step1"],
-        [LocalizationHelper localized:@"assets.opening.step2"],
-        [LocalizationHelper localized:@"assets.opening.step3"]
+        [FALocalizationHelper localized:@"assets.opening.step1"],
+        [FALocalizationHelper localized:@"assets.opening.step2"],
+        [FALocalizationHelper localized:@"assets.opening.step3"]
     ];
 }
 

@@ -16,8 +16,8 @@ final class ChatViewController: ChatKitConversationViewController {
       var config = ChatKitConversationConfiguration.default
       config.showStatusBanner = true
       config.showWelcomeMessage = true
-      config.welcomeMessageProvider = { LocalizationHelper.localized("app.welcome") }
-      config.toolsProvider = { ComposerToolsExample.createExampleTools() }
+      config.welcomeMessageProvider = { FALocalizationHelper.localized("app.welcome") }
+      config.toolsProvider = { FAComposerToolsExample.createExampleTools() }
       // Wrap in MainActor.assumeIsolated since this init is called from MainActor context
       config.contextProvidersProvider = {
           MainActor.assumeIsolated {
@@ -64,7 +64,7 @@ final class ChatViewController: ChatKitConversationViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dsObserver = NotificationCenter.default.addObserver(forName: .DSChatStartersReady, object: nil, queue: .main) { [weak self] n in
+        dsObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name("DSChatStartersReady"), object: nil, queue: .main) { [weak self] n in
             guard let _ = self else { return }
             let starters = n.userInfo?["starters"] as? [String] ?? []
             let prompts = starters.enumerated().map { idx, title in

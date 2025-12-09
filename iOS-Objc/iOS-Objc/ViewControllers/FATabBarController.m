@@ -3,8 +3,10 @@
 #import "FAAssetsViewController.h"
 #import "FAStrategiesViewController.h"
 #import "FASettingsViewController.h"
+#import "FAChatNavigationDelegate.h"
+#import "FALocalizationHelper.h"
 
-@interface FATabBarController () <ChatNavigationDelegate>
+@interface FATabBarController () <FAChatNavigationDelegate>
 @end
 
 @implementation FATabBarController
@@ -23,10 +25,10 @@
 - (void)updateTabBarTitles {
     NSArray *vcs = self.viewControllers;
     if (vcs.count >= 4) {
-        ((UIViewController *)vcs[0]).tabBarItem.title = [LocalizationHelper localized:@"tab.chat"];
-        ((UIViewController *)vcs[1]).tabBarItem.title = [LocalizationHelper localized:@"tab.strategies"];
-        ((UIViewController *)vcs[2]).tabBarItem.title = [LocalizationHelper localized:@"tab.assets"];
-        ((UIViewController *)vcs[3]).tabBarItem.title = [LocalizationHelper localized:@"settings.title"];
+        ((UIViewController *)vcs[0]).tabBarItem.title = [FALocalizationHelper localized:@"tab.chat"];
+        ((UIViewController *)vcs[1]).tabBarItem.title = [FALocalizationHelper localized:@"tab.strategies"];
+        ((UIViewController *)vcs[2]).tabBarItem.title = [FALocalizationHelper localized:@"tab.assets"];
+        ((UIViewController *)vcs[3]).tabBarItem.title = [FALocalizationHelper localized:@"settings.title"];
     }
 }
 
@@ -35,7 +37,7 @@
     UIViewController *chatContainer = [[FAChatManager shared] createDrawerContainer];
     UINavigationController *chatNav = [[UINavigationController alloc] initWithRootViewController:chatContainer];
     [chatNav setNavigationBarHidden:YES animated:NO];
-    chatNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:[LocalizationHelper localized:@"tab.chat"]
+    chatNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:[FALocalizationHelper localized:@"tab.chat"]
                                                        image:[UIImage systemImageNamed:@"bubble.left.and.bubble.right"]
                                                selectedImage:[UIImage systemImageNamed:@"bubble.left.and.bubble.right.fill"]];
     
@@ -43,7 +45,7 @@
     FAStrategiesViewController *strategiesVC = [[FAStrategiesViewController alloc] init];
     strategiesVC.navigationDelegate = self;
     UINavigationController *strategiesNav = [[UINavigationController alloc] initWithRootViewController:strategiesVC];
-    strategiesNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:[LocalizationHelper localized:@"tab.strategies"]
+    strategiesNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:[FALocalizationHelper localized:@"tab.strategies"]
                                                              image:[UIImage systemImageNamed:@"chart.line.uptrend.xyaxis"]
                                                      selectedImage:[UIImage systemImageNamed:@"chart.line.uptrend.xyaxis.fill"]];
     
@@ -51,14 +53,14 @@
     FAAssetsViewController *assetsVC = [[FAAssetsViewController alloc] init];
     assetsVC.navigationDelegate = self;
     UINavigationController *assetsNav = [[UINavigationController alloc] initWithRootViewController:assetsVC];
-    assetsNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:[LocalizationHelper localized:@"tab.assets"]
+    assetsNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:[FALocalizationHelper localized:@"tab.assets"]
                                                          image:[UIImage systemImageNamed:@"wallet.pass"]
                                                  selectedImage:[UIImage systemImageNamed:@"wallet.pass.fill"]];
     
     // 4. Settings Tab
     FASettingsViewController *settingsVC = [[FASettingsViewController alloc] init];
     UINavigationController *settingsNav = [[UINavigationController alloc] initWithRootViewController:settingsVC];
-    settingsNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:[LocalizationHelper localized:@"settings.title"]
+    settingsNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:[FALocalizationHelper localized:@"settings.title"]
                                                            image:[UIImage systemImageNamed:@"gearshape"]
                                                    selectedImage:[UIImage systemImageNamed:@"gearshape.fill"]];
     
@@ -81,7 +83,7 @@
     }
 }
 
-#pragma mark - ChatNavigationDelegate
+#pragma mark - FAChatNavigationDelegate
 
 - (void)navigateToChatWithMessage:(NSString *)message context:(NSDictionary<NSString *,id> *)context {
     [[FAChatManager shared] navigateToChatWithMessage:message context:context from:self];

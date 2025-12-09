@@ -580,18 +580,17 @@ extension StockCollectorView: UICollectionViewDataSource, UICollectionViewDelega
         onConfirm?(item)
 
         // Fire DeepSeek starters fetch after selection
-        DSChatService.shared.fetchStartersForStock(name: s.name, symbol: s.symbol) { result in
-            switch result {
-            case .success(let starters):
+        FADSChatService.shared().fetchStarters(forStockName: s.name, symbol: s.symbol) { starters, error in
+            if let error = error {
+                print("[DeepSeek] starters error: \(error)")
+            } else if let starters = starters {
                 print("[DeepSeek] starters for \(s.name)(\(s.symbol)):")
                 starters.forEach { print("  • \($0)") }
-                NotificationCenter.default.post(name: .DSChatStartersReady, object: nil, userInfo: [
+                NotificationCenter.default.post(name: NSNotification.Name("DSChatStartersReady"), object: nil, userInfo: [
                     "starters": starters,
                     "symbol": s.symbol,
                     "name": s.name
                 ])
-            case .failure(let err):
-                print("[DeepSeek] starters error: \(err)")
             }
         }
     }

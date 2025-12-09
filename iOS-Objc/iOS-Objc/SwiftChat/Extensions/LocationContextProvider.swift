@@ -8,7 +8,7 @@ import ConvoUI
 @MainActor
 final class LocationContextProvider: NSObject, @preconcurrency ConvoUIContextProvider {
     var id: String { "chatkit.location" }
-    var title: String { LocalizationHelper.localized("location.title") }
+    var title: String { FALocalizationHelper.localized("location.title") }
     var iconName: String { "location.fill" }
     var isAvailable: Bool { true }
     var priority: Int { 105 }
@@ -76,7 +76,7 @@ final class LocationCollectorView: UIView {
         backgroundColor = .systemBackground
 
         searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.placeholder = LocalizationHelper.localized("location.search.placeholder")
+        searchBar.placeholder = FALocalizationHelper.localized("location.search.placeholder")
         searchBar.delegate = self
         addSubview(searchBar)
 
@@ -94,7 +94,7 @@ final class LocationCollectorView: UIView {
         mapView.setRegion(initialRegion, animated: false)
 
         selectButton.translatesAutoresizingMaskIntoConstraints = false
-        selectButton.setTitle(LocalizationHelper.localized("location.use.button"), for: .normal)
+        selectButton.setTitle(FALocalizationHelper.localized("location.use.button"), for: .normal)
         selectButton.backgroundColor = .systemBlue
         selectButton.setTitleColor(.white, for: .normal)
         selectButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
@@ -130,7 +130,7 @@ final class LocationCollectorView: UIView {
 
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
-        annotation.title = LocalizationHelper.localized("location.selected")
+        annotation.title = FALocalizationHelper.localized("location.selected")
         mapView.addAnnotation(annotation)
 
         selectedCoordinate = coordinate
@@ -291,7 +291,7 @@ final class LocationDetailView: UIView {
         backgroundColor = .systemBackground
 
         closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.setTitle(LocalizationHelper.localized("location.close"), for: .normal)
+        closeButton.setTitle(FALocalizationHelper.localized("location.close"), for: .normal)
         closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         closeButton.addTarget(self, action: #selector(handleClose), for: .touchUpInside)
         addSubview(closeButton)
@@ -300,7 +300,7 @@ final class LocationDetailView: UIView {
         infoLabel.numberOfLines = 0
         infoLabel.font = UIFont.systemFont(ofSize: 16)
         infoLabel.text = """
-        \(item.placeName ?? LocalizationHelper.localized("location.selected"))
+        \(item.placeName ?? FALocalizationHelper.localized("location.selected"))
 
         Latitude: \(String(format: "%.6f", item.latitude))
         Longitude: \(String(format: "%.6f", item.longitude))
@@ -400,8 +400,8 @@ struct LocationContextItem: ConvoUIContextItem {
             ContextDescriptionTemplate(
                 locale: "zh-CN",
                 template: place.isEmpty
-                    ? LocalizationHelper.localized("location.template.coords")
-                    : LocalizationHelper.localized("location.template.place")
+                    ? FALocalizationHelper.localized("location.template.coords")
+                    : FALocalizationHelper.localized("location.template.place")
             )
         ]
     }

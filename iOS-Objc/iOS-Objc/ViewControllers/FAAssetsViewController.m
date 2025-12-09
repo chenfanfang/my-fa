@@ -7,6 +7,7 @@
 #import "FAPortfolio.h"
 #import "FAAccountOpeningCardView.h"
 #import "FAMockAssetService.h"
+#import "FALocalizationHelper.h"
 
 // MARK: - FAHoldingCell
 
@@ -117,7 +118,7 @@
     formatter.currencyCode = @"USD";
     
     self.valueLabel.text = [formatter stringFromNumber:@(value)];
-    self.quantityLabel.text = [NSString stringWithFormat:[LocalizationHelper localized:@"portfolio.quantity.units"], holding.quantity];
+    self.quantityLabel.text = [NSString stringWithFormat:[FALocalizationHelper localized:@"portfolio.quantity.units"], holding.quantity];
 }
 
 - (void)askButtonTapped {
@@ -168,16 +169,16 @@
 
 - (void)languageDidChange {
     // Update Localized Strings
-    self.title = [LocalizationHelper localized:@"assets.title"];
-    self.titleLabel.text = [LocalizationHelper localized:@"assets.journey.title"];
-    self.subtitleLabel.text = [LocalizationHelper localized:@"assets.journey.subtitle"];
-    [self.startButton setTitle:[LocalizationHelper localized:@"assets.start.opening"] forState:UIControlStateNormal];
-    self.loginLabel.text = [LocalizationHelper localized:@"assets.has.account"];
-    [self.loginButton setTitle:[LocalizationHelper localized:@"assets.login.demo"] forState:UIControlStateNormal];
+    self.title = [FALocalizationHelper localized:@"assets.title"];
+    self.titleLabel.text = [FALocalizationHelper localized:@"assets.journey.title"];
+    self.subtitleLabel.text = [FALocalizationHelper localized:@"assets.journey.subtitle"];
+    [self.startButton setTitle:[FALocalizationHelper localized:@"assets.start.opening"] forState:UIControlStateNormal];
+    self.loginLabel.text = [FALocalizationHelper localized:@"assets.has.account"];
+    [self.loginButton setTitle:[FALocalizationHelper localized:@"assets.login.demo"] forState:UIControlStateNormal];
     
     if (self.isLoggedIn) {
-        self.navigationItem.rightBarButtonItems[0].title = [LocalizationHelper localized:@"assets.trade"];
-        self.navigationItem.rightBarButtonItems[1].title = [LocalizationHelper localized:@"assets.logout"];
+        self.navigationItem.rightBarButtonItems[0].title = [FALocalizationHelper localized:@"assets.trade"];
+        self.navigationItem.rightBarButtonItems[1].title = [FALocalizationHelper localized:@"assets.logout"];
     }
     
     [self.tableView reloadData];
@@ -185,14 +186,14 @@
     // Update Header
     UILabel *titleLabel = [self.headerView viewWithTag:99]; // Added tag 99 for title
     if (titleLabel) {
-        titleLabel.text = [LocalizationHelper localized:@"assets.total.balance"];
+        titleLabel.text = [FALocalizationHelper localized:@"assets.total.balance"];
     }
     [self updateHeader]; // Will re-format cash label
 }
 
 - (void)setupUI {
     self.view.backgroundColor = [UIColor systemGroupedBackgroundColor];
-    self.title = [LocalizationHelper localized:@"assets.title"];
+    self.title = [FALocalizationHelper localized:@"assets.title"];
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     
     [self setupLoginUI];
@@ -226,7 +227,7 @@
     
     // Labels
     self.titleLabel = [[UILabel alloc] init];
-    self.titleLabel.text = [LocalizationHelper localized:@"assets.journey.title"];
+    self.titleLabel.text = [FALocalizationHelper localized:@"assets.journey.title"];
     self.titleLabel.font = [UIFont systemFontOfSize:28 weight:UIFontWeightBold];
     self.titleLabel.textColor = [UIColor labelColor];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -234,7 +235,7 @@
     [self.contentView addSubview:self.titleLabel];
     
     self.subtitleLabel = [[UILabel alloc] init];
-    self.subtitleLabel.text = [LocalizationHelper localized:@"assets.journey.subtitle"];
+    self.subtitleLabel.text = [FALocalizationHelper localized:@"assets.journey.subtitle"];
     self.subtitleLabel.font = [UIFont systemFontOfSize:16];
     self.subtitleLabel.textColor = [UIColor secondaryLabelColor];
     self.subtitleLabel.textAlignment = NSTextAlignmentCenter;
@@ -250,7 +251,7 @@
     
     // Start Button
     self.startButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.startButton setTitle:[LocalizationHelper localized:@"assets.start.opening"] forState:UIControlStateNormal];
+    [self.startButton setTitle:[FALocalizationHelper localized:@"assets.start.opening"] forState:UIControlStateNormal];
     self.startButton.titleLabel.font = [UIFont systemFontOfSize:17 weight:UIFontWeightSemibold];
     [self.startButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.startButton.backgroundColor = [UIColor systemBlueColor];
@@ -261,7 +262,7 @@
     
     // Login Label
     self.loginLabel = [[UILabel alloc] init];
-    self.loginLabel.text = [LocalizationHelper localized:@"assets.has.account"];
+    self.loginLabel.text = [FALocalizationHelper localized:@"assets.has.account"];
     self.loginLabel.font = [UIFont systemFontOfSize:15];
     self.loginLabel.textColor = [UIColor secondaryLabelColor];
     self.loginLabel.textAlignment = NSTextAlignmentCenter;
@@ -270,7 +271,7 @@
     
     // Login Button
     self.loginButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.loginButton setTitle:[LocalizationHelper localized:@"assets.login.demo"] forState:UIControlStateNormal];
+    [self.loginButton setTitle:[FALocalizationHelper localized:@"assets.login.demo"] forState:UIControlStateNormal];
     self.loginButton.titleLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
     [self.loginButton setTitleColor:[UIColor systemBlueColor] forState:UIControlStateNormal];
     self.loginButton.translatesAutoresizingMaskIntoConstraints = NO;
@@ -357,7 +358,7 @@
     
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.tag = 99;
-    titleLabel.text = [LocalizationHelper localized:@"assets.total.balance"];
+    titleLabel.text = [FALocalizationHelper localized:@"assets.total.balance"];
     titleLabel.textColor = [UIColor secondaryLabelColor];
     titleLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightMedium];
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -433,7 +434,7 @@
     
     NSString *cashStr = [self formatCurrency:self.wealthService.portfolio.cashBalance];
     // Using localized string with format
-    NSString *format = [LocalizationHelper localized:@"assets.cash"]; 
+    NSString *format = [FALocalizationHelper localized:@"assets.cash"]; 
     // The format string in Swift is "Cash: %@" (or similar).
     // ObjC stringWithFormat might need check if format contains %@.
     // Assuming localized string returns "Cash: %@"
@@ -449,8 +450,8 @@
     self.tableView.hidden = !self.isLoggedIn;
     
     if (self.isLoggedIn) {
-        UIBarButtonItem *tradeButton = [[UIBarButtonItem alloc] initWithTitle:[LocalizationHelper localized:@"assets.trade"] style:UIBarButtonItemStylePlain target:self action:@selector(tradeButtonTapped)];
-        UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:[LocalizationHelper localized:@"assets.logout"] style:UIBarButtonItemStylePlain target:self action:@selector(logoutTapped)];
+        UIBarButtonItem *tradeButton = [[UIBarButtonItem alloc] initWithTitle:[FALocalizationHelper localized:@"assets.trade"] style:UIBarButtonItemStylePlain target:self action:@selector(tradeButtonTapped)];
+        UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:[FALocalizationHelper localized:@"assets.logout"] style:UIBarButtonItemStylePlain target:self action:@selector(logoutTapped)];
         self.navigationItem.rightBarButtonItems = @[tradeButton, logoutButton];
     } else {
         self.navigationItem.rightBarButtonItems = nil;
@@ -460,7 +461,7 @@
 // MARK: - Actions
 
 - (void)startAccountOpening {
-    NSString *message = [LocalizationHelper localized:@"account.opening.request"];
+    NSString *message = [FALocalizationHelper localized:@"account.opening.request"];
     NSDictionary *context = @{
         @"type": @"account_opening",
         @"step": @"phone_verification"
@@ -469,20 +470,20 @@
 }
 
 - (void)showLoginScreen {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[LocalizationHelper localized:@"assets.login.title"] message:[LocalizationHelper localized:@"assets.login.message"] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[FALocalizationHelper localized:@"assets.login.title"] message:[FALocalizationHelper localized:@"assets.login.message"] preferredStyle:UIAlertControllerStyleAlert];
     
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = [LocalizationHelper localized:@"assets.login.username"];
+        textField.placeholder = [FALocalizationHelper localized:@"assets.login.username"];
         textField.text = @"johndoe";
     }];
     
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = [LocalizationHelper localized:@"assets.login.password"];
+        textField.placeholder = [FALocalizationHelper localized:@"assets.login.password"];
         textField.secureTextEntry = YES;
         textField.text = @"12345678";
     }];
     
-    UIAlertAction *loginAction = [UIAlertAction actionWithTitle:[LocalizationHelper localized:@"assets.login.button"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *loginAction = [UIAlertAction actionWithTitle:[FALocalizationHelper localized:@"assets.login.button"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSString *username = alert.textFields[0].text;
         NSString *password = alert.textFields[1].text;
         
@@ -490,23 +491,23 @@
             self.isLoggedIn = YES;
             [self updateViewState];
         } else {
-            UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:[LocalizationHelper localized:@"app.error"] message:[LocalizationHelper localized:@"assets.login.error"] preferredStyle:UIAlertControllerStyleAlert];
-            [errorAlert addAction:[UIAlertAction actionWithTitle:[LocalizationHelper localized:@"app.ok"] style:UIAlertActionStyleDefault handler:nil]];
+            UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:[FALocalizationHelper localized:@"app.error"] message:[FALocalizationHelper localized:@"assets.login.error"] preferredStyle:UIAlertControllerStyleAlert];
+            [errorAlert addAction:[UIAlertAction actionWithTitle:[FALocalizationHelper localized:@"app.ok"] style:UIAlertActionStyleDefault handler:nil]];
             [self presentViewController:errorAlert animated:YES completion:nil];
         }
     }];
     
     [alert addAction:loginAction];
-    [alert addAction:[UIAlertAction actionWithTitle:[LocalizationHelper localized:@"app.cancel"] style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:[FALocalizationHelper localized:@"app.cancel"] style:UIAlertActionStyleCancel handler:nil]];
     
     [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)logoutTapped {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[LocalizationHelper localized:@"assets.logout.confirm.title"] message:[LocalizationHelper localized:@"assets.logout.confirm.message"] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[FALocalizationHelper localized:@"assets.logout.confirm.title"] message:[FALocalizationHelper localized:@"assets.logout.confirm.message"] preferredStyle:UIAlertControllerStyleAlert];
     
-    [alert addAction:[UIAlertAction actionWithTitle:[LocalizationHelper localized:@"app.cancel"] style:UIAlertActionStyleCancel handler:nil]];
-    [alert addAction:[UIAlertAction actionWithTitle:[LocalizationHelper localized:@"assets.logout"] style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:[FALocalizationHelper localized:@"app.cancel"] style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:[FALocalizationHelper localized:@"assets.logout"] style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         self.isLoggedIn = NO;
         [self updateViewState];
     }]];
@@ -515,7 +516,7 @@
 }
 
 - (void)tradeButtonTapped {
-    NSString *message = [LocalizationHelper localized:@"trade.want"];
+    NSString *message = [FALocalizationHelper localized:@"trade.want"];
     [self.navigationDelegate navigateToChatWithMessage:message context:@{}];
     
     if (self.tabBarController) {
@@ -526,7 +527,7 @@
 - (void)askAboutAsset:(FAHolding *)holding {
     // Note: localized(@"assets.ask.about", arg1, arg2) not directly available via current bridge
     // We'll assume the format string is returned and we format it here.
-    NSString *format = [LocalizationHelper localized:@"assets.ask.about"];
+    NSString *format = [FALocalizationHelper localized:@"assets.ask.about"];
     NSString *message = [NSString stringWithFormat:format, holding.asset.name, holding.asset.symbol];
     [self.navigationDelegate navigateToChatWithMessage:message context:@{}];
     
@@ -561,7 +562,7 @@
             case FAAssetTypeBond: typeKey = @"bond"; break;
             case FAAssetTypeCash: typeKey = @"cash"; break;
         }
-        return [LocalizationHelper localized:[NSString stringWithFormat:@"portfolio.%@", typeKey]];
+        return [FALocalizationHelper localized:[NSString stringWithFormat:@"portfolio.%@", typeKey]];
     }
     return nil;
 }

@@ -15,9 +15,9 @@
 - (NSArray<FAStrategy *> *)getStrategies {
     // Strategy 1
     FAStrategyCreator *creator1 = [[FAStrategyCreator alloc] init];
-    creator1.name = [LocalizationHelper localized:@"strategy.sample1.creator"];
+    creator1.name = [FALocalizationHelper localized:@"strategy.sample1.creator"];
     creator1.avatarColor = @"#6B5CE7";
-    creator1.role = [LocalizationHelper localized:@"strategy.sample1.role"];
+    creator1.role = [FALocalizationHelper localized:@"strategy.sample1.role"];
     
     FAStrategyPerformance *perf1 = [[FAStrategyPerformance alloc] init];
     perf1.annualReturn = 23.8;
@@ -25,9 +25,9 @@
     perf1.sharpeRatio = 1.65;
     perf1.winRate = 68.0;
     
-    FAStrategyTag *tag1_1 = [[FAStrategyTag alloc] init]; tag1_1.text = [LocalizationHelper localized:@"strategies.risk.medium"]; tag1_1.type = FAStrategyTagTypeRisk;
-    FAStrategyTag *tag1_2 = [[FAStrategyTag alloc] init]; tag1_2.text = [LocalizationHelper localized:@"strategies.term.medium"]; tag1_2.type = FAStrategyTagTypeTerm;
-    FAStrategyTag *tag1_3 = [[FAStrategyTag alloc] init]; tag1_3.text = [LocalizationHelper localized:@"strategies.type.etf.stock"]; tag1_3.type = FAStrategyTagTypeAsset;
+    FAStrategyTag *tag1_1 = [[FAStrategyTag alloc] init]; tag1_1.text = [FALocalizationHelper localized:@"strategies.risk.medium"]; tag1_1.type = FAStrategyTagTypeRisk;
+    FAStrategyTag *tag1_2 = [[FAStrategyTag alloc] init]; tag1_2.text = [FALocalizationHelper localized:@"strategies.term.medium"]; tag1_2.type = FAStrategyTagTypeTerm;
+    FAStrategyTag *tag1_3 = [[FAStrategyTag alloc] init]; tag1_3.text = [FALocalizationHelper localized:@"strategies.type.etf.stock"]; tag1_3.type = FAStrategyTagTypeAsset;
     
     FAStrategyEngagement *eng1 = [[FAStrategyEngagement alloc] init];
     eng1.likes = 1247;
@@ -39,8 +39,8 @@
     
     FAStrategy *s1 = [[FAStrategy alloc] init];
     s1.strategyId = @"strategy-1";
-    s1.title = [LocalizationHelper localized:@"strategy.sample1.title"];
-    s1.desc = [LocalizationHelper localized:@"strategy.sample1.desc"];
+    s1.title = [FALocalizationHelper localized:@"strategy.sample1.title"];
+    s1.desc = [FALocalizationHelper localized:@"strategy.sample1.desc"];
     s1.creator = creator1;
     s1.performance = perf1;
     s1.tags = @[tag1_1, tag1_2, tag1_3];
@@ -49,9 +49,9 @@
     
     // Strategy 2
     FAStrategyCreator *creator2 = [[FAStrategyCreator alloc] init];
-    creator2.name = [LocalizationHelper localized:@"strategy.sample2.creator"];
+    creator2.name = [FALocalizationHelper localized:@"strategy.sample2.creator"];
     creator2.avatarColor = @"#5B9FD7";
-    creator2.role = [LocalizationHelper localized:@"strategy.sample2.role"];
+    creator2.role = [FALocalizationHelper localized:@"strategy.sample2.role"];
     
     FAStrategyPerformance *perf2 = [[FAStrategyPerformance alloc] init];
     perf2.annualReturn = 18.5;
@@ -59,8 +59,8 @@
     perf2.sharpeRatio = 2.1;
     perf2.winRate = 72.0;
     
-    FAStrategyTag *tag2_1 = [[FAStrategyTag alloc] init]; tag2_1.text = [LocalizationHelper localized:@"strategies.risk.low"]; tag2_1.type = FAStrategyTagTypeRisk;
-    FAStrategyTag *tag2_2 = [[FAStrategyTag alloc] init]; tag2_2.text = [LocalizationHelper localized:@"strategies.term.long"]; tag2_2.type = FAStrategyTagTypeTerm;
+    FAStrategyTag *tag2_1 = [[FAStrategyTag alloc] init]; tag2_1.text = [FALocalizationHelper localized:@"strategies.risk.low"]; tag2_1.type = FAStrategyTagTypeRisk;
+    FAStrategyTag *tag2_2 = [[FAStrategyTag alloc] init]; tag2_2.text = [FALocalizationHelper localized:@"strategies.term.long"]; tag2_2.type = FAStrategyTagTypeTerm;
     FAStrategyTag *tag2_3 = [[FAStrategyTag alloc] init]; tag2_3.text = @"ETF"; tag2_3.type = FAStrategyTagTypeAsset;
     
     FAStrategyEngagement *eng2 = [[FAStrategyEngagement alloc] init];
@@ -75,8 +75,8 @@
     
     FAStrategy *s2 = [[FAStrategy alloc] init];
     s2.strategyId = @"strategy-2";
-    s2.title = [LocalizationHelper localized:@"strategy.sample2.title"];
-    s2.desc = [LocalizationHelper localized:@"strategy.sample2.desc"];
+    s2.title = [FALocalizationHelper localized:@"strategy.sample2.title"];
+    s2.desc = [FALocalizationHelper localized:@"strategy.sample2.desc"];
     s2.creator = creator2;
     s2.performance = perf2;
     s2.tags = @[tag2_1, tag2_2, tag2_3];

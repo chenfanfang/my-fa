@@ -18,4 +18,12 @@
     return @"My Financial Agent";
 }
 
++ (NSString *)apiKey {
+    return @"";
+}
+
++ (NSString *)endpoint {
+    return @"https://api.siliconflow.cn/v1/chat/completions";
+}
+
 @end

@@ -7,12 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364464940A0252BA214267ED /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 5841C099FFF2987BFAE4170F /* zh-Hans.lproj */; };
+		37CAF059C235549434CD8D64 /* FALocalizationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EE42861BB0BB17D0A94245 /* FALocalizationHelper.m */; };
+		521AE8ABC87C33F11961F47A /* FAComposerToolsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = E04608B3522CAE6A77E2B816 /* FAComposerToolsExample.m */; };
+		A5D64E1BDED77EBEBD026891 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 0A6C599606D63FE1AC1D1C54 /* en.lproj */; };
+		AF3C0F9D1AC16BA323B78F0C /* FAAppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AA955C1B565FD462CE4722 /* FAAppConfig.m */; };
+		B467C0992AFB5F623CC63DC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CC88A6F9C1C5EB27C2888BD /* Assets.xcassets */; };
+		CB080C274A31E76C8A7D8BB5 /* FADrawerContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406290FE89DBC818797E1F04 /* FADrawerContainerViewController.m */; };
 		E9F1528FB8B9B3A670129BEB /* Pods_iOS_Objc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D545258CD2DE6E4DC9DA9122 /* Pods_iOS_Objc.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A6C599606D63FE1AC1D1C54 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = "iOS-Objc/en.lproj"; sourceTree = "<group>"; };
+		0FCB2CB02007510EF94F3F7A /* FAAppConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FAAppConfig.h; path = "iOS-Objc/SwiftChat/Bridge/FAAppConfig.h"; sourceTree = "<group>"; };
+		15EE42861BB0BB17D0A94245 /* FALocalizationHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FALocalizationHelper.m; path = "iOS-Objc/SwiftChat/Bridge/FALocalizationHelper.m"; sourceTree = "<group>"; };
+		38038A7E49A2809ED59D10C3 /* FALocalizationHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FALocalizationHelper.h; path = "iOS-Objc/SwiftChat/Bridge/FALocalizationHelper.h"; sourceTree = "<group>"; };
+		3CC88A6F9C1C5EB27C2888BD /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "iOS-Objc/Assets.xcassets"; sourceTree = "<group>"; };
+		406290FE89DBC818797E1F04 /* FADrawerContainerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FADrawerContainerViewController.m; path = "iOS-Objc/SwiftChat/Bridge/FADrawerContainerViewController.m"; sourceTree = "<group>"; };
+		5841C099FFF2987BFAE4170F /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "iOS-Objc/zh-Hans.lproj"; sourceTree = "<group>"; };
+		71AA955C1B565FD462CE4722 /* FAAppConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FAAppConfig.m; path = "iOS-Objc/SwiftChat/Bridge/FAAppConfig.m"; sourceTree = "<group>"; };
+		7E815FA96BEDE9F287DEC660 /* FAChatNavigationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FAChatNavigationDelegate.h; path = "iOS-Objc/SwiftChat/FAChatNavigationDelegate.h"; sourceTree = "<group>"; };
+		7EC7327E06E2B3355844D82A /* FAComposerToolsExample.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FAComposerToolsExample.h; path = "iOS-Objc/SwiftChat/FAComposerToolsExample.h"; sourceTree = "<group>"; };
 		83696E822DFB164E548D546E /* Pods-iOS-Objc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Objc.debug.xcconfig"; path = "Target Support Files/Pods-iOS-Objc/Pods-iOS-Objc.debug.xcconfig"; sourceTree = "<group>"; };
+		9BADDEE5211169905FA2962A /* FADrawerContainerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FADrawerContainerViewController.h; path = "iOS-Objc/SwiftChat/Bridge/FADrawerContainerViewController.h"; sourceTree = "<group>"; };
 		D545258CD2DE6E4DC9DA9122 /* Pods_iOS_Objc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Objc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E04608B3522CAE6A77E2B816 /* FAComposerToolsExample.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FAComposerToolsExample.m; path = "iOS-Objc/SwiftChat/FAComposerToolsExample.m"; sourceTree = "<group>"; };
 		F4CCB868FB1A82FF7FE53F4F /* Pods-iOS-Objc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Objc.release.xcconfig"; path = "Target Support Files/Pods-iOS-Objc/Pods-iOS-Objc.release.xcconfig"; sourceTree = "<group>"; };
 		F631FF7F2EE7C3D300FCF0C4 /* iOS-Objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -50,12 +69,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1590CB4C0FC8DD5F5452C3A9 /* ManualResources */ = {
+			isa = PBXGroup;
+			children = (
+				0A6C599606D63FE1AC1D1C54 /* en.lproj */,
+				5841C099FFF2987BFAE4170F /* zh-Hans.lproj */,
+				3CC88A6F9C1C5EB27C2888BD /* Assets.xcassets */,
+			);
+			name = ManualResources;
+			sourceTree = "<group>";
+		};
 		31AF3EB3237C4E16806F744A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				D545258CD2DE6E4DC9DA9122 /* Pods_iOS_Objc.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		629CAF4725B8BEF10A37024D /* ManualSources */ = {
+			isa = PBXGroup;
+			children = (
+				9BADDEE5211169905FA2962A /* FADrawerContainerViewController.h */,
+				406290FE89DBC818797E1F04 /* FADrawerContainerViewController.m */,
+				0FCB2CB02007510EF94F3F7A /* FAAppConfig.h */,
+				71AA955C1B565FD462CE4722 /* FAAppConfig.m */,
+				38038A7E49A2809ED59D10C3 /* FALocalizationHelper.h */,
+				15EE42861BB0BB17D0A94245 /* FALocalizationHelper.m */,
+				7EC7327E06E2B3355844D82A /* FAComposerToolsExample.h */,
+				E04608B3522CAE6A77E2B816 /* FAComposerToolsExample.m */,
+				7E815FA96BEDE9F287DEC660 /* FAChatNavigationDelegate.h */,
+			);
+			name = ManualSources;
 			sourceTree = "<group>";
 		};
 		6859C18F7495CEC21CA8C074 /* Pods */ = {
@@ -74,6 +119,8 @@
 				F631FF802EE7C3D300FCF0C4 /* Products */,
 				6859C18F7495CEC21CA8C074 /* Pods */,
 				31AF3EB3237C4E16806F744A /* Frameworks */,
+				1590CB4C0FC8DD5F5452C3A9 /* ManualResources */,
+				629CAF4725B8BEF10A37024D /* ManualSources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +196,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D64E1BDED77EBEBD026891 /* en.lproj in Resources */,
+				364464940A0252BA214267ED /* zh-Hans.lproj in Resources */,
+				B467C0992AFB5F623CC63DC7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,13 +235,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOS-Objc/Pods-iOS-Objc-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOS-Objc/Pods-iOS-Objc-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -205,6 +251,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB080C274A31E76C8A7D8BB5 /* FADrawerContainerViewController.m in Sources */,
+				AF3C0F9D1AC16BA323B78F0C /* FAAppConfig.m in Sources */,
+				37CAF059C235549434CD8D64 /* FALocalizationHelper.m in Sources */,
+				521AE8ABC87C33F11961F47A /* FAComposerToolsExample.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +292,7 @@
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = wild_all;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS-Objc/iOS-Objc-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -278,6 +329,7 @@
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = wild_all;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS-Objc/iOS-Objc-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -33,7 +33,7 @@
     
     // Title
     self.titleLabel = [[UILabel alloc] init];
-    self.titleLabel.text = [LocalizationHelper localized:@"assets.opening.title"];
+    self.titleLabel.text = [FALocalizationHelper localized:@"assets.opening.title"];
     self.titleLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightMedium];
     self.titleLabel.textColor = [UIColor lightGrayColor];
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;

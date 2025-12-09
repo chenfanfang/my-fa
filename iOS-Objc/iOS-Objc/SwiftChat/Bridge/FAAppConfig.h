@@ -8,6 +8,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)defaultUserId;
 + (NSString *)defaultAgentId;
 + (NSString *)defaultAgentName;
++ (NSString *)apiKey;
++ (NSString *)endpoint;
 
 @end
 

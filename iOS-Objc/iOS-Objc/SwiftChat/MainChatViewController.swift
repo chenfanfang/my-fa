@@ -1,4 +1,4 @@
-asimport UIKit
+import UIKit
 import Combine
 import FinClipChatKit
 
@@ -27,7 +27,7 @@ import FinClipChatKit
   
   private lazy var titleLabel: UILabel = {
     let label = UILabel()
-    label.text = LocalizationHelper.localized("chat.agent.title")
+    label.text = FALocalizationHelper.localized("chat.agent.title")
     label.font = .systemFont(ofSize: 18, weight: .semibold)
     label.textAlignment = .center
     label.translatesAutoresizingMaskIntoConstraints = false
@@ -61,7 +61,7 @@ import FinClipChatKit
     view.backgroundColor = .systemBackground
     
     let label = UILabel()
-    label.text = LocalizationHelper.localized("chat.empty.state")
+    label.text = FALocalizationHelper.localized("chat.empty.state")
     label.numberOfLines = 0
     label.textAlignment = .center
     label.font = .systemFont(ofSize: 20, weight: .medium)
@@ -105,9 +105,9 @@ import FinClipChatKit
   }
   
   @objc private func languageDidChange() {
-    titleLabel.text = LocalizationHelper.localized("chat.agent.title")
+    titleLabel.text = FALocalizationHelper.localized("chat.agent.title")
     if let label = emptyStateView.viewWithTag(999) as? UILabel {
-      label.text = LocalizationHelper.localized("chat.empty.state")
+      label.text = FALocalizationHelper.localized("chat.empty.state")
     }
   }
   
@@ -181,9 +181,9 @@ import FinClipChatKit
     Task { @MainActor in
       do {
         let (record, conversation) = try await coordinator.startConversation(
-          agentId: AppConfig.defaultAgentId,
+          agentId: UUID(uuidString: FAAppConfig.defaultAgentId())!,
           title: nil,
-          agentName: AppConfig.defaultAgentName
+          agentName: FAAppConfig.defaultAgentName()
         )
         embedChatViewController(record: record, conversation: conversation)
         
@@ -195,7 +195,7 @@ import FinClipChatKit
         }
       } catch {
         print("[MainChatViewController] Failed to create conversation: \(error)")
-        showAlert(title: LocalizationHelper.localized("app.error"), message: LocalizationHelper.localized("error.create.conversation"))
+        showAlert(title: FALocalizationHelper.localized("app.error"), message: FALocalizationHelper.localized("error.create.conversation"))
       }
     }
   }
@@ -230,7 +230,7 @@ import FinClipChatKit
   
   private func showAlert(title: String, message: String) {
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: LocalizationHelper.localized("app.ok"), style: .default))
+    alert.addAction(UIAlertAction(title: FALocalizationHelper.localized("app.ok"), style: .default))
     present(alert, animated: true)
   }
   
@@ -265,7 +265,7 @@ import FinClipChatKit
   }
   
   @objc private func hamburgerTapped() {
-    if let container = parent as? DrawerContainerViewController {
+    if let container = parent as? FADrawerContainerViewController {
       container.toggleDrawer()
     }
   }

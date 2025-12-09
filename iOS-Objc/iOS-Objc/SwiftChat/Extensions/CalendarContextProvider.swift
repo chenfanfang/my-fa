@@ -9,7 +9,7 @@ final class CalendarContextProvider: NSObject, @preconcurrency ConvoUIContextPro
     private let eventStore: EKEventStore
 
     var id: String { "chatkit.calendar" }
-    var title: String { LocalizationHelper.localized("calendar.title") }
+    var title: String { FALocalizationHelper.localized("calendar.title") }
     var iconName: String { "calendar" }
     var isAvailable: Bool { true }
     var priority: Int { 90 }
@@ -50,12 +50,12 @@ final class CalendarContextProvider: NSObject, @preconcurrency ConvoUIContextPro
 
     private func makeFallbackEvent() -> EKEvent {
         let fallback = EKEvent(eventStore: eventStore)
-        fallback.title = LocalizationHelper.localized("calendar.sample.meeting")
-        fallback.location = LocalizationHelper.localized("calendar.sample.location")
+        fallback.title = FALocalizationHelper.localized("calendar.sample.meeting")
+        fallback.location = FALocalizationHelper.localized("calendar.sample.location")
         let start = Date().addingTimeInterval(60 * 60) // 1 hour from now
         fallback.startDate = start
         fallback.endDate = start.addingTimeInterval(45 * 60)
-        fallback.notes = LocalizationHelper.localized("calendar.sample.notes")
+        fallback.notes = FALocalizationHelper.localized("calendar.sample.notes")
         return fallback
     }
 }
@@ -98,7 +98,7 @@ struct CalendarContextItem: ConvoUIContextItem {
     var codablePayload: Encodable? {
         Payload(
             identifier: event.eventIdentifier ?? UUID().uuidString,
-            title: event.title ?? LocalizationHelper.localized("calendar.untitled.event"),
+            title: event.title ?? FALocalizationHelper.localized("calendar.untitled.event"),
             location: event.location,
             notes: event.notes,
             startDate: event.startDate.timeIntervalSince1970,
@@ -158,7 +158,7 @@ struct CalendarContextItem: ConvoUIContextItem {
         let titleLabel = UILabel(frame: CGRect(x: 48, y: 8, width: 180, height: 22))
         titleLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         titleLabel.textColor = .label
-        titleLabel.text = event.title ?? LocalizationHelper.localized("calendar.no.title")
+        titleLabel.text = event.title ?? FALocalizationHelper.localized("calendar.no.title")
         titleLabel.numberOfLines = 1
         container.addSubview(titleLabel)
 
@@ -183,7 +183,7 @@ struct CalendarContextItem: ConvoUIContextItem {
         let start = CalendarContextItem.displayFormatter.string(from: event.startDate)
         let range: String
         if event.isAllDay {
-            range = LocalizationHelper.localized("calendar.all.day", start)
+            range = String(format: FALocalizationHelper.localized("calendar.all.day"), start)
         } else {
             let end = CalendarContextItem.displayFormatter.string(from: event.endDate)
             range = start == end ? start : "\(start) → \(end)"
@@ -269,7 +269,7 @@ final class CalendarEventCollectorView: UIView, UITableViewDataSource, UITableVi
         loadingIndicator.startAnimating()
         loadingIndicator.hidesWhenStopped = true
         
-        confirmButton.setTitle(LocalizationHelper.localized("calendar.use.button"), for: .normal)
+        confirmButton.setTitle(FALocalizationHelper.localized("calendar.use.button"), for: .normal)
         confirmButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         confirmButton.isEnabled = false
         confirmButton.addAction(UIAction { [weak self] _ in
@@ -385,7 +385,7 @@ final class CalendarEventCollectorView: UIView, UITableViewDataSource, UITableVi
     
     private func showNoPermissionState() {
         let label = UILabel()
-        label.text = LocalizationHelper.localized("calendar.no.permission")
+        label.text = FALocalizationHelper.localized("calendar.no.permission")
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .secondaryLabel
@@ -397,7 +397,7 @@ final class CalendarEventCollectorView: UIView, UITableViewDataSource, UITableVi
         let container = UIView()
         
         let label = UILabel()
-        label.text = LocalizationHelper.localized("calendar.empty.state")
+        label.text = FALocalizationHelper.localized("calendar.empty.state")
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .secondaryLabel
@@ -422,10 +422,10 @@ final class CalendarEventCollectorView: UIView, UITableViewDataSource, UITableVi
         let id = "CalendarEventCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: id) ?? UITableViewCell(style: .subtitle, reuseIdentifier: id)
         let ev = events[indexPath.row]
-        cell.textLabel?.text = ev.title ?? LocalizationHelper.localized("calendar.no.title")
+        cell.textLabel?.text = ev.title ?? FALocalizationHelper.localized("calendar.no.title")
         let start = CalendarContextItem.displayFormatter.string(from: ev.startDate)
         let end = CalendarContextItem.displayFormatter.string(from: ev.endDate)
-        let range = ev.isAllDay ? LocalizationHelper.localized("calendar.all.day", start) : (start == end ? start : "\(start) → \(end)")
+        let range = ev.isAllDay ? String(format: FALocalizationHelper.localized("calendar.all.day"), start) : (start == end ? start : "\(start) → \(end)")
         cell.detailTextLabel?.text = range
         cell.accessoryType = (indexPath == selectedIndex) ? .checkmark : .none
         return cell
@@ -488,7 +488,7 @@ final class CalendarEventDetailView: UIView {
         notesLabel.numberOfLines = 0
         notesLabel.textColor = .secondaryLabel
 
-        closeButton.setTitle(LocalizationHelper.localized("calendar.close"), for: .normal)
+        closeButton.setTitle(FALocalizationHelper.localized("calendar.close"), for: .normal)
         closeButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         closeButton.addTarget(self, action: #selector(handleCloseTapped), for: .touchUpInside)
 
@@ -516,19 +516,19 @@ final class CalendarEventDetailView: UIView {
     }
 
     private func configure() {
-        titleLabel.text = item.event.title ?? LocalizationHelper.localized("calendar.no.title")
+        titleLabel.text = item.event.title ?? FALocalizationHelper.localized("calendar.no.title")
         timeLabel.text = item.summaryText()
 
         if let location = item.event.location, !location.isEmpty {
             locationLabel.isHidden = false
-            locationLabel.text = LocalizationHelper.localized("calendar.location.format", location)
+            locationLabel.text = String(format: FALocalizationHelper.localized("calendar.location.format"), location)
         } else {
             locationLabel.isHidden = true
         }
 
         if let notes = item.event.notes, !notes.isEmpty {
             notesLabel.isHidden = false
-            notesLabel.text = LocalizationHelper.localized("calendar.notes.format", notes)
+            notesLabel.text = String(format: FALocalizationHelper.localized("calendar.notes.format"), notes)
         } else {
             notesLabel.isHidden = true
         }

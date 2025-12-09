@@ -14,7 +14,7 @@ import ConvoUI
 final class PortfolioContextProvider: NSObject, @preconcurrency ConvoUIContextProvider {
     
     var id: String { "chatkit.portfolio" }
-    var title: String { LocalizationHelper.localized("portfolio.title") }
+    var title: String { FALocalizationHelper.localized("portfolio.title") }
     var iconName: String { "chart.pie.fill" } // specific SFSymbol
     var isAvailable: Bool { true }
     var priority: Int { 100 } // High priority
@@ -42,7 +42,7 @@ final class PortfolioContextProvider: NSObject, @preconcurrency ConvoUIContextPr
     }
 
     func localizedDescription(for item: any ConvoUIContextItem) -> String {
-        return LocalizationHelper.localized("portfolio.current")
+        return FALocalizationHelper.localized("portfolio.current")
     }
 }
 
@@ -66,27 +66,30 @@ struct PortfolioContextItem: ConvoUIContextItem {
     let id = UUID()
     let providerId = "chatkit.portfolio"
     let type = "portfolio_snapshot"
-    var displayName: String { LocalizationHelper.localized("portfolio.display.name") }
+    var displayName: String { FALocalizationHelper.localized("portfolio.display.name") }
     
-    let portfolio: Portfolio
+    let portfolio: FAPortfolio
     let timestamp: Date
     
-    init(portfolio: Portfolio) {
+    init(portfolio: FAPortfolio) {
         self.portfolio = portfolio
         self.timestamp = Date()
     }
     
     var codablePayload: Encodable? {
-        let wealthService = WealthService.shared // Access mock data
+        let wealthService = FAWealthService.shared() // Access mock data
         // Note: In a real app, avoid accessing singleton from item init if possible, or pass data in.
         // Here, for demo simplicity, we calculate values using current mock prices.
         
-        let holdingPayloads = portfolio.holdings.map { holding -> Payload.HoldingPayload in
-            let price = wealthService.getPrice(assetId: holding.asset.id) ?? 0
+        // Convert NSArray<FAHolding*> to Swift Array
+        let objcHoldings = portfolio.holdings as? [FAHolding] ?? []
+        
+        let holdingPayloads = objcHoldings.map { holding -> Payload.HoldingPayload in
+            let price = wealthService.getPriceForAssetId(holding.asset.assetId)
             return Payload.HoldingPayload(
                 symbol: holding.asset.symbol,
                 name: holding.asset.name,
-                type: holding.asset.type.rawValue,
+                type: holding.asset.typeDisplayName(),
                 quantity: holding.quantity,
                 value: holding.quantity * price
             )
@@ -137,7 +140,7 @@ struct PortfolioContextItem: ConvoUIContextItem {
         let titleLabel = UILabel(frame: CGRect(x: 48, y: 8, width: 180, height: 22))
         titleLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         titleLabel.textColor = .label
-        titleLabel.text = LocalizationHelper.localized("portfolio.title")
+        titleLabel.text = FALocalizationHelper.localized("portfolio.title")
         container.addSubview(titleLabel)
         
         let detailLabel = UILabel(frame: CGRect(x: 48, y: 30, width: 180, height: 22))
@@ -148,7 +151,7 @@ struct PortfolioContextItem: ConvoUIContextItem {
         formatter.numberStyle = .currency
         formatter.currencyCode = "USD"
         let cashString = formatter.string(from: NSNumber(value: portfolio.cashBalance)) ?? "$\(Int(portfolio.cashBalance))"
-        detailLabel.text = LocalizationHelper.localized("portfolio.detail.format", portfolio.holdings.count, cashString)
+        detailLabel.text = String(format: FALocalizationHelper.localized("portfolio.detail.format"), portfolio.holdings.count, cashString)
         container.addSubview(detailLabel)
         
         let remove = UIButton(type: .system)
@@ -184,29 +187,29 @@ class PortfolioCollectorView: UIView {
         addSubview(stack)
         
         let label = UILabel()
-        label.text = LocalizationHelper.localized("portfolio.share.message")
+        label.text = FALocalizationHelper.localized("portfolio.share.message")
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = .preferredFont(forTextStyle: .body)
         
         let valueLabel = UILabel()
-        let total = WealthService.shared.getTotalValue()
+        let total = FAWealthService.shared().getTotalValue()
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.currencyCode = "USD"
         let totalString = formatter.string(from: NSNumber(value: total)) ?? String(format: "$%.2f", total)
-        valueLabel.text = LocalizationHelper.localized("portfolio.total.value", totalString)
+        valueLabel.text = String(format: FALocalizationHelper.localized("portfolio.total.value"), totalString)
         valueLabel.font = .preferredFont(forTextStyle: .headline)
         valueLabel.textAlignment = .center
         
         let attachButton = UIButton(type: .system)
-        attachButton.setTitle(LocalizationHelper.localized("portfolio.attach.button"), for: .normal)
+        attachButton.setTitle(FALocalizationHelper.localized("portfolio.attach.button"), for: .normal)
         attachButton.backgroundColor = .systemBlue
         attachButton.setTitleColor(.white, for: .normal)
         attachButton.layer.cornerRadius = 8
         attachButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         attachButton.addAction(UIAction { [weak self] _ in
-            let item = PortfolioContextItem(portfolio: WealthService.shared.portfolio)
+            let item = PortfolioContextItem(portfolio: FAWealthService.shared().portfolio)
             self?.onConfirm?(item)
         }, for: .touchUpInside)
         
@@ -234,7 +237,7 @@ class PortfolioDetailView: UIView {
         backgroundColor = .systemBackground
         
         let label = UILabel()
-        label.text = LocalizationHelper.localized("portfolio.details.sent")
+        label.text = FALocalizationHelper.localized("portfolio.details.sent")
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)

@@ -3,6 +3,7 @@
 #import "FAStrategyCardView.h"
 #import "FAMockStrategyService.h"
 #import "FAStrategy.h"
+#import "FALocalizationHelper.h"
 
 @interface FAStrategiesViewController () <FAStrategyCardDelegate>
 
@@ -22,7 +23,7 @@
 }
 
 - (void)languageDidChange {
-    self.title = [LocalizationHelper localized:@"strategies.title"];
+    self.title = [FALocalizationHelper localized:@"strategies.title"];
     
     // Refresh content
     for (UIView *subview in self.contentStackView.arrangedSubviews) {
@@ -34,7 +35,7 @@
 - (void)setupUI {
     self.view.backgroundColor = [UIColor colorWithWhite:0.05 alpha:1.0];
     
-    self.title = [LocalizationHelper localized:@"strategies.title"];
+    self.title = [FALocalizationHelper localized:@"strategies.title"];
     
     UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
     [appearance configureWithOpaqueBackground];
@@ -50,14 +51,14 @@
     [self.view addSubview:headerView];
     
     UILabel *headerTitle = [[UILabel alloc] init];
-    headerTitle.text = [LocalizationHelper localized:@"strategies.title"];
+    headerTitle.text = [FALocalizationHelper localized:@"strategies.title"];
     headerTitle.font = [UIFont systemFontOfSize:28 weight:UIFontWeightBold];
     headerTitle.textColor = [UIColor whiteColor];
     headerTitle.translatesAutoresizingMaskIntoConstraints = NO;
     [headerView addSubview:headerTitle];
     
     UILabel *headerSubtitle = [[UILabel alloc] init];
-    headerSubtitle.text = [LocalizationHelper localized:@"strategies.subtitle"];
+    headerSubtitle.text = [FALocalizationHelper localized:@"strategies.subtitle"];
     headerSubtitle.font = [UIFont systemFontOfSize:14];
     headerSubtitle.textColor = [UIColor grayColor];
     headerSubtitle.translatesAutoresizingMaskIntoConstraints = NO;
@@ -124,7 +125,7 @@
 #pragma mark - StrategyCardDelegate
 
 - (void)strategyCardDidTapTakeToChat:(FAStrategyCardView *)card strategy:(FAStrategy *)strategy {
-    NSString *format = [LocalizationHelper localized:@"strategies.discuss"];
+    NSString *format = [FALocalizationHelper localized:@"strategies.discuss"];
     NSString *message = [NSString stringWithFormat:format, strategy.title];
     NSDictionary *context = @{
         @"type": @"strategy",
