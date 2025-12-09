@@ -7,7 +7,7 @@ enum ChatContextProviderFactory {
         return [
             ConvoUIContextProviderBridge(provider: StockContextProvider()),
             ConvoUIContextProviderBridge(provider: AttachmentContextProvider()),
-            ConvoUIContextProviderBridge(provider: LocationContextProvider()),
+            ConvoUIContextProviderBridge(provider: FALocationContextProvider()),
             ConvoUIContextProviderBridge(provider: CalendarContextProvider()),
             ConvoUIContextProviderBridge(provider: PortfolioContextProvider())
         ]

@@ -6,7 +6,7 @@ import ConvoUI
 
 @available(iOS 15.0, *)
 @MainActor
-final class LocationContextProvider: NSObject, @preconcurrency ConvoUIContextProvider {
+final class FALocationContextProvider: NSObject, @preconcurrency ConvoUIContextProvider {
     var id: String { "chatkit.location" }
     var title: String { FALocalizationHelper.localized("location.title") }
     var iconName: String { "location.fill" }

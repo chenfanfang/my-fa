@@ -1,4 +1,6 @@
 #import "FAStrategyCardView.h"
+#import "FAStrategy.h"
+#import "FALocalizationHelper.h"
 #import "FAPerformanceChartView.h"
 #import "iOS_Objc-Swift.h"
 

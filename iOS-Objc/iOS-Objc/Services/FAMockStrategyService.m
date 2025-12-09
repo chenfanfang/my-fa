@@ -1,5 +1,6 @@
 #import "FAMockStrategyService.h"
-#import "iOS_Objc-Swift.h"
+#import "FAStrategy.h"
+#import "FALocalizationHelper.h"
 
 @implementation FAMockStrategyService
 

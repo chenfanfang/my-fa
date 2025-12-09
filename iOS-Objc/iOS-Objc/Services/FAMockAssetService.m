@@ -1,5 +1,6 @@
 #import "FAMockAssetService.h"
-#import "iOS_Objc-Swift.h"
+#import "FAAsset.h"
+#import "FALocalizationHelper.h"
 
 @implementation FAMockAssetService
 

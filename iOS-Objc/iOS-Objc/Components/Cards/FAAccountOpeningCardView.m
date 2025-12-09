@@ -1,5 +1,6 @@
 #import "FAAccountOpeningCardView.h"
 #import "iOS_Objc-Swift.h"
+#import "FALocalizationHelper.h"
 
 @interface FAAccountOpeningCardView ()
 
