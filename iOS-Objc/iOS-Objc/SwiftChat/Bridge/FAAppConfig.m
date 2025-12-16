@@ -7,15 +7,15 @@
 }
 
 + (NSString *)defaultUserId {
-    return @"user_demo_001";
+    return @"demo-user";
 }
 
 + (NSString *)defaultAgentId {
-    return @"finance_agent_01";
+    return @"E1E72B3D-845D-4F5D-B6CA-5550F2643E6B";
 }
 
 + (NSString *)defaultAgentName {
-    return @"My Financial Agent";
+    return @"My Agent";
 }
 
 + (NSString *)apiKey {
